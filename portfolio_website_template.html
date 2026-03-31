@@ -7,37 +7,84 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-    body{background:#231F2A;color:#fff;scroll-behavior:smooth}
 
-    header{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;background:#111;position:sticky;top:0;z-index:100}
-    header h2{font-weight:700;background:linear-gradient(45deg,#f5a623,#ff4e50,#24c6dc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    /* 🌈 Gradient Background */
+    body{
+      background: linear-gradient(135deg, #231F2A, #1a1a2e, #16213e);
+      color:#fff;
+      scroll-behavior:smooth;
+    }
+
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+
+    /* 🌟 Neon Glow Name */
+    header h2{
+      font-weight:700;
+      background: linear-gradient(45deg,#f5a623,#ff4e50,#24c6dc);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 10px rgba(255,255,255,0.3);
+    }
+
     nav a{color:#fff;margin-left:20px;text-decoration:none;transition:.3s}
     nav a:hover{color:#f5a623}
 
     .home{display:flex;align-items:center;justify-content:space-between;padding:80px 50px}
     .left{max-width:50%}
     .left h1{font-size:45px}
-    .name{background:linear-gradient(45deg,#f5a623,#ff4e50);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+    .name{
+      background: linear-gradient(45deg,#f5a623,#ff4e50);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 15px rgba(255,78,80,0.6);
+    }
+
     .typing{font-size:22px;color:#f5a623;margin-top:10px}
 
-    .btn{display:inline-block;margin-top:20px;padding:10px 20px;background:#f5a623;color:#000;border-radius:5px;text-decoration:none}
+    .btn{
+      display:inline-block;margin-top:20px;padding:10px 20px;
+      background:#f5a623;color:#000;border-radius:5px;text-decoration:none;
+      box-shadow:0 0 10px #f5a623;
+    }
+
     .btn:hover{opacity:.8}
 
     .social a{margin-right:15px;color:#fff;text-decoration:none;font-size:18px}
 
-    .right img{width:320px;border-radius:10px}
+    .right img{
+      width:320px;border-radius:10px;
+      box-shadow:0 0 25px rgba(255,255,255,0.2);
+    }
 
     section{padding:60px 50px;text-align:center;opacity:1;transform:translateY(0);transition:all .6s}
-    section.show{opacity:1;transform:translateY(0)}
 
     .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px}
 
-    .card{background:#1a1a1a;border-radius:10px;overflow:hidden;transition:.3s}
+    /* 💎 Glass Effect Card */
+    .card{
+      background: rgba(255,255,255,0.05);
+      border-radius:15px;
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,0.1);
+      overflow:hidden;
+      transition:.3s;
+    }
+
     .card img{width:100%;height:150px;object-fit:cover}
-    .card:hover{transform:translateY(-10px) scale(1.03)}
+
+    /* ✨ Neon Hover Effect */
+    .card:hover{
+      transform:translateY(-10px) scale(1.05);
+      box-shadow:0 0 20px #24c6dc, 0 0 40px #ff4e50;
+    }
+
     .card-content{padding:15px}
 
-    footer{text-align:center;padding:20px;background:#111}
+    footer{
+      text-align:center;padding:20px;background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(10px);
+    }
   </style>
 </head>
 <body>
@@ -52,7 +99,7 @@
   </nav>
 </header>
 
-<section class="home show" id="home">
+<section class="home" id="home">
   <div class="left">
     <h1>Hello, I'm <span class="name">Bhaskar Ghorui</span></h1>
     <div class="typing" id="typing"></div>
@@ -65,7 +112,7 @@
     </div>
   </div>
   <div class="right">
-    <img src="profile.jpg" alt="profile">
+    <img src="myphoto.jpg" alt="profile">
   </div>
 </section>
 
@@ -99,14 +146,8 @@
 
 <section id="contact">
   <h2>Contact Me</h2>
-  <p>
-    📧 Email: <a href="mailto:bhaskarghorui620@gmail.com" style="color:#f5a623; text-decoration:none;">
-    bhaskarghorui620@gmail.com</a>
-  </p>
-  <p>
-    📞 Phone: <a href="tel:8101588362" style="color:#f5a623; text-decoration:none;">
-    8101588362</a>
-  </p>
+  <p>📧 <a href="mailto:bhaskarghorui620@gmail.com" style="color:#f5a623">bhaskarghorui620@gmail.com</a></p>
+  <p>📞 <a href="tel:8101588362" style="color:#f5a623">8101588362</a></p>
 </section>
 
 <footer>
@@ -114,34 +155,18 @@
 </footer>
 
 <script>
-  const roles=["Data Analytics","MIS Executive","Excel & Power BI Dashboard Developer","Reporting"];
-  let i=0,j=0,current="",isDeleting=false;
-
-  function type(){
-    const el=document.getElementById("typing");
-    if(!isDeleting&&j<=roles[i].length){current=roles[i].substring(0,j++)}
-    else if(isDeleting&&j>=0){current=roles[i].substring(0,j--)}
-    el.innerHTML=current;
-    if(j===roles[i].length){isDeleting=true;setTimeout(type,1000);return}
-    if(j===0&&isDeleting){isDeleting=false;i=(i+1)%roles.length}
-    setTimeout(type,isDeleting?50:100)
-  }
-  type();
-
-  // scroll animation (optional smoother effect)
-  const sections=document.querySelectorAll("section");
-  window.addEventListener("scroll",()=>{
-    sections.forEach(sec=>{
-      const top=window.scrollY;
-      const offset=sec.offsetTop-200;
-      if(top>offset){sec.classList.add("show")}
-    })
-  });
-
-  // show all sections on load (fix visibility issue)
-  window.onload = () => {
-    sections.forEach(sec => sec.classList.add("show"));
-  };
+const roles=["Data Analyst","MIS Executive","Power BI Developer"];
+let i=0,j=0,current="",isDeleting=false;
+function type(){
+const el=document.getElementById("typing");
+if(!isDeleting&&j<=roles[i].length){current=roles[i].substring(0,j++)}
+else if(isDeleting&&j>=0){current=roles[i].substring(0,j--)}
+el.innerHTML=current;
+if(j===roles[i].length){isDeleting=true;setTimeout(type,1000);return}
+if(j===0&&isDeleting){isDeleting=false;i=(i+1)%roles.length}
+setTimeout(type,isDeleting?50:100)
+}
+type();
 </script>
 
 </body>
