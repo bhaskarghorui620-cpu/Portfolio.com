@@ -27,7 +27,7 @@
 
     .right img{width:320px;border-radius:10px}
 
-    section{padding:60px 50px;text-align:center;opacity:0;transform:translateY(40px);transition:all .6s}
+    section{padding:60px 50px;text-align:center;opacity:1;transform:translateY(0);transition:all .6s}
     section.show{opacity:1;transform:translateY(0)}
 
     .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px}
@@ -128,7 +128,7 @@
   }
   type();
 
-  // scroll animation
+  // scroll animation (optional smoother effect)
   const sections=document.querySelectorAll("section");
   window.addEventListener("scroll",()=>{
     sections.forEach(sec=>{
@@ -137,6 +137,11 @@
       if(top>offset){sec.classList.add("show")}
     })
   });
+
+  // show all sections on load (fix visibility issue)
+  window.onload = () => {
+    sections.forEach(sec => sec.classList.add("show"));
+  };
 </script>
 
 </body>
