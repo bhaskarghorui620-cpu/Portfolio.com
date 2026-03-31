@@ -8,87 +8,90 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-    /* 🌈 Gradient Background */
+    /* 🌈 Background with your Dark Purple Shade */
     body{
-      background: linear-gradient(135deg, #231F2A, #1a1a2e, #16213e);
+      background: linear-gradient(135deg, #231F2A, #1a1a2e, #0d0d0d);
       color:#fff;
       scroll-behavior:smooth;
+      overflow-x: hidden;
     }
 
-    header{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;background:rgba(0,0,0,0.5);backdrop-filter:blur(15px);position:sticky;top:0;z-index:100; border-bottom: 1px solid rgba(255,255,255,0.1);}
 
-    /* 🌟 Neon Glow Name */
     header h2{
       font-weight:700;
       background: linear-gradient(45deg,#f5a623,#ff4e50,#24c6dc);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:0 0 10px rgba(255,255,255,0.3);
     }
 
-    nav a{color:#fff;margin-left:20px;text-decoration:none;transition:.3s}
+    nav a{color:#fff;margin-left:25px;text-decoration:none;font-size: 15px; transition:.3s; font-weight: 400;}
     nav a:hover{color:#f5a623}
 
-    .home{display:flex;align-items:center;justify-content:space-between;padding:80px 50px}
-    .left{max-width:50%}
-    .left h1{font-size:45px}
+    .home{display:flex;align-items:center;justify-content:space-between;padding:100px 50px; min-height: 80vh;}
+    .left{max-width:55%}
+    .left h1{font-size:50px; line-height: 1.2;}
 
     .name{
       background: linear-gradient(45deg,#f5a623,#ff4e50);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:0 0 15px rgba(255,78,80,0.6);
+      text-shadow:0 0 20px rgba(245, 166, 35, 0.2);
     }
 
-    .typing{font-size:22px;color:#f5a623;margin-top:10px; min-height: 35px;}
+    .typing{font-size:24px;color:#f5a623;margin-top:15px; min-height: 35px; font-weight: 300;}
 
     .btn{
-      display:inline-block;margin-top:20px;padding:10px 20px;
-      background:#f5a623;color:#000;border-radius:5px;text-decoration:none;
-      box-shadow:0 0 10px #f5a623;
-      font-weight: 600;
+      display:inline-block;margin-top:30px;padding:12px 25px;
+      background:#f5a623;color:#000;border-radius:8px;text-decoration:none;
+      box-shadow:0 10px 20px rgba(245, 166, 35, 0.2);
+      font-weight: 600; transition: 0.4s;
     }
 
-    .btn:hover{opacity:.8; transform: scale(1.05); transition: 0.3s;}
+    .btn:hover{transform: translateY(-5px); box-shadow: 0 15px 30px rgba(245, 166, 35, 0.4);}
 
-    .social a{margin-right:15px;color:#fff;text-decoration:none;font-size:18px; border-bottom: 1px solid transparent; transition: 0.3s;}
-    .social a:hover{color: #24c6dc; border-bottom: 1px solid #24c6dc;}
+    .social{margin-top:25px;}
+    .social a{margin-right:20px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:16px; transition: 0.3s; border-bottom: 1px solid transparent;}
+    .social a:hover{color: #f5a623; border-bottom: 1px solid #f5a623;}
 
     .right img{
-      width:320px;border-radius:10px;
-      box-shadow:0 0 25px rgba(255,255,255,0.2);
+      width:320px; height: 320px; border-radius:20px; object-fit: cover;
+      box-shadow:0 20px 40px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.1);
+      transition: 0.5s;
     }
+    .right img:hover{ transform: rotate(-3deg) scale(1.05); border-color: #f5a623; }
 
-    section{padding:60px 50px;text-align:center;}
+    section{padding:80px 50px; text-align: center;}
+    h2{font-size: 36px; margin-bottom: 20px; position: relative; display: inline-block;}
+    h2::after{ content: ''; width: 50%; height: 3px; background: #f5a623; position: absolute; bottom: -10px; left: 25%; border-radius: 10px; }
 
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-top:50px}
 
-    /* 💎 Glass Effect Card */
     .card{
-      background: rgba(255,255,255,0.05);
-      border-radius:15px;
+      background: rgba(255,255,255,0.03);
+      border-radius:20px;
       backdrop-filter: blur(10px);
-      border:1px solid rgba(255,255,255,0.1);
-      overflow:hidden;
-      transition:.3s;
+      border:1px solid rgba(255,255,255,0.05);
+      overflow:hidden; transition:.4s; text-align: left;
     }
 
-    .card img{width:100%;height:150px;object-fit:cover}
-
-    /* ✨ Neon Hover Effect */
+    .card img{width:100%;height:180px;object-fit:cover; opacity: 0.8;}
     .card:hover{
-      transform:translateY(-10px) scale(1.05);
-      box-shadow:0 0 20px #24c6dc, 0 0 40px #ff4e50;
+      transform:translateY(-15px);
+      background: rgba(255,255,255,0.07);
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+      border-color: rgba(245, 166, 35, 0.3);
     }
 
-    .card-content{padding:15px}
+    .card-content{padding:25px}
+    .card-content h3{margin-bottom: 10px; color: #f5a623;}
+    .card-content p{font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5;}
 
     footer{
-      text-align:center;padding:40px 20px;background:rgba(0,0,0,0.4);
-      backdrop-filter:blur(10px);
-      margin-top: 50px;
+      text-align:center;padding:50px 20px;background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px); border-top: 1px solid rgba(255,255,255,0.05);
     }
-    
     footer b { color: #f5a623; }
   </style>
 </head>
@@ -106,67 +109,64 @@
 
 <section class="home" id="home">
   <div class="left">
-    <h1>Hello, I'm <span class="name">Bhaskar Ghorui</span></h1>
+    <h1>Hello, I'm <br><span class="name">Bhaskar Ghorui</span></h1>
     <div class="typing" id="typing"></div>
 
     <a href="resume.pdf" class="btn" download>Download Resume</a>
 
-    <div class="social" style="margin-top:15px">
+    <div class="social">
       <a href="https://www.linkedin.com/in/bhaskar-ghorui" target="_blank">LinkedIn</a>
       <a href="https://github.com/your-username" target="_blank">GitHub</a>
     </div>
   </div>
   <div class="right">
-    <img src="myphoto.jpg" alt="Bhaskar Ghorui Profile">
+    <img src="myphoto.jpg" alt="Bhaskar Ghorui">
   </div>
 </section>
 
 <section id="about">
   <h2>About Me</h2>
-  <p style="max-width: 800px; margin: 20px auto; line-height: 1.6; opacity: 0.9;">
-    I am a passionate Data Analytics enthusiast currently learning tools like <b>Excel, Power BI, and SQL</b>. 
-    I love building real-world projects and turning complex data into easy-to-understand insights.
+  <p style="max-width: 800px; margin: 30px auto; line-height: 1.8; font-size: 17px; color: rgba(255,255,255,0.8);">
+    I am a dedicated <b>Data Analytics</b> enthusiast with a focus on transforming raw data into meaningful stories. 
+    Currently mastering <b>Excel, Power BI, and SQL</b>, I specialize in creating dashboards that help in making better business decisions.
   </p>
 </section>
 
 <section id="projects">
   <h2>My Projects</h2>
   <div class="projects">
-
     <div class="card">
-      <img src="https://via.placeholder.com/300x150" alt="Sales Dashboard">
+      <img src="https://via.placeholder.com/400x200/231F2A/f5a623?text=Sales+Analytics" alt="Sales Dashboard">
       <div class="card-content">
-        <h3>Sales Dashboard</h3>
-        <p>Power BI dashboard analyzing sales performance and trends.</p>
+        <h3>Sales Performance Dashboard</h3>
+        <p>A comprehensive Power BI report analyzing monthly growth, regional sales, and product performance.</p>
       </div>
     </div>
-
     <div class="card">
-      <img src="https://via.placeholder.com/300x150" alt="HR Analytics">
+      <img src="https://via.placeholder.com/400x200/231F2A/24c6dc?text=HR+Data" alt="HR Analytics">
       <div class="card-content">
-        <h3>HR Analytics</h3>
-        <p>Employee data analysis using advanced Excel functions.</p>
+        <h3>HR Resource Analysis</h3>
+        <p>Advanced Excel project focusing on employee turnover, attendance patterns, and salary distribution.</p>
       </div>
     </div>
-
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" style="background: rgba(255,255,255,0.02);">
   <h2>Contact Me</h2>
-  <div style="margin-top: 20px;">
-    <p>📧 Email: <a href="mailto:bhaskarghorui620@gmail.com" style="color:#f5a623; text-decoration: none;">bhaskarghorui620@gmail.com</a></p>
-    <p>📞 Phone: <a href="tel:8101588362" style="color:#f5a623; text-decoration: none;">8101588362</a></p>
+  <div style="margin-top: 30px; font-size: 18px;">
+    <p style="margin-bottom: 10px;">📧 <a href="mailto:bhaskarghorui620@gmail.com" style="color:#f5a623; text-decoration: none;">bhaskarghorui620@gmail.com</a></p>
+    <p>📞 <a href="tel:8101588362" style="color:#f5a623; text-decoration: none;">+91 8101588362</a></p>
   </div>
 </section>
 
 <footer>
   <p>Designed & Built with ❤️ by <b>Bhaskar Ghorui</b></p>
-  <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">Turning Data into Insights | © 2026 All Rights Reserved</p>
+  <p style="font-size: 13px; opacity: 0.6; margin-top: 15px; letter-spacing: 1px;">TURNING DATA INTO INSIGHTS | © 2026</p>
 </footer>
 
 <script>
-const roles=["Data Analytics", "MIS Executive", "Excel & Power BI Dashboard Developer", "Reporting"];
+const roles=["Data Analytics Professional", "MIS Executive", "Power BI Developer", "SQL & Excel Expert"];
 let i=0,j=0,current="",isDeleting=false;
 
 function type(){
@@ -177,21 +177,25 @@ function type(){
   else if(isDeleting && j >= 0){
     current = roles[i].substring(0, j--);
   }
-  el.innerHTML = current + '<span style="border-right: 2px solid #f5a623;"></span>';
+  el.innerHTML = current + '<span style="border-right: 2px solid #f5a623; animation: blink 0.7s infinite;"></span>';
 
   if(!isDeleting && j === roles[i].length + 1){
     isDeleting = true;
-    setTimeout(type, 1500); // Pause at end
+    setTimeout(type, 2000); 
     return;
   }
   if(isDeleting && j === 0){
     isDeleting = false;
     i = (i + 1) % roles.length;
   }
-  setTimeout(type, isDeleting ? 50 : 100);
+  setTimeout(type, isDeleting ? 40 : 80);
 }
 type();
 </script>
+
+<style>
+@keyframes blink { 50% { opacity: 0; } }
+</style>
 
 </body>
 </html>
