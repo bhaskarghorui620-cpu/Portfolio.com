@@ -8,79 +8,88 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0d0d0d;color:#fff;transition:0.3s}
+body{background:#0d0d0d;color:#fff;overflow-x:hidden}
 
-.light-mode{background:#fff;color:#000}
+canvas{position:fixed;top:0;left:0;z-index:-1}
 
-header{display:flex;justify-content:space-between;padding:20px 50px;background:#111}
-button{padding:8px 15px;border:none;background:#f5a623;cursor:pointer}
+header{display:flex;justify-content:space-between;padding:20px 50px;background:rgba(0,0,0,0.3)}
+header h2{background:linear-gradient(45deg,#f5a623,#ff4e50,#24c6dc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
-section{padding:50px;text-align:center}
+section{padding:60px 50px;text-align:center}
+
+.home{display:flex;justify-content:space-between;align-items:center}
+.left{max-width:50%}
+.name{color:#f5a623}
+
+.skills .bar{background:#222;border-radius:20px;margin:10px 0}
+.skills .fill{height:10px;background:#f5a623;border-radius:20px}
 
 .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .card{background:#1a1a1a;padding:20px;border-radius:10px}
 
-.chatbox{
-position:fixed;bottom:20px;right:20px;width:250px;background:#222;padding:10px;border-radius:10px
-}
-
+iframe{width:100%;height:400px;border:none;border-radius:10px}
 </style>
 </head>
 
 <body>
+<canvas id="bg"></canvas>
 
 <header>
-<h2>Bhaskar Portfolio</h2>
-<div>
-<button onclick="toggleMode()">🌗 Mode</button>
-<button onclick="sharePage()">🔗 Share</button>
-</div>
+<h2>Bhaskar Ghorui</h2>
 </header>
 
-<section>
-<h1>Bhaskar Ghorui</h1>
+<section class="home">
+<div class="left">
+<h1>Hello, I'm <span class="name">Bhaskar</span></h1>
 <p>Data Analyst | MIS Executive</p>
-<img src="myphoto.jpg" width="200">
+</div>
+<img src="myphoto.jpg" width="250">
 </section>
 
 <section>
-<h2>Projects</h2>
-<div class="projects">
-
-<div class="card">
-<h3>Sales Dashboard</h3>
-<p>Power BI Project</p>
-<a href="#" download>Download File</a>
-</div>
-
-<div class="card">
-<h3>HR Analytics</h3>
-<p>Excel Project</p>
-<a href="#" download>Download File</a>
-</div>
-
+<h2>Skills</h2>
+<div class="skills">
+<p>Excel</p><div class="bar"><div class="fill" style="width:90%"></div></div>
+<p>Power BI</p><div class="bar"><div class="fill" style="width:80%"></div></div>
+<p>SQL</p><div class="bar"><div class="fill" style="width:70%"></div></div>
 </div>
 </section>
 
 <section>
 <h2>Experience</h2>
-<p>Fresher | Data Analytics Projects</p>
+<p>Fresher | Learning Data Analytics & Building Projects</p>
 </section>
 
-<div class="chatbox">
-<p>🤖 Ask me anything!</p>
-<input type="text" placeholder="Type...">
-</div>
+<section>
+<h2>Power BI Dashboard</h2>
+<iframe src="https://app.powerbi.com/view?r=YOUR_LINK"></iframe>
+</section>
 
 <script>
-function toggleMode(){
-document.body.classList.toggle('light-mode');
+// particles
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+
+for(let i=0;i<100;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:2})
 }
 
-function sharePage(){
-navigator.clipboard.writeText(window.location.href);
-alert("Link copied! Share anywhere.");
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle='white';
+particles.forEach(p=>{
+p.y+=0.5;
+if(p.y>canvas.height)p.y=0;
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+});
+requestAnimationFrame(draw);
 }
+draw();
 </script>
 
 </body>
