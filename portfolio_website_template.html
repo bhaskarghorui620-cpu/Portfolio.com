@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bhaskar | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body {background:#0d0d0d;color:#fff;}
 
     header {
       display:flex;justify-content:space-between;align-items:center;
-      padding:20px 50px;background:#111;position:sticky;top:0;
+      padding:20px 50px;background:#111;
     }
 
-    header h2 {color:#f5a623;}
+    header h2 {
+      font-weight:700;
+      background: linear-gradient(45deg, #f5a623, #ff4e50, #24c6dc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     nav a {
       color:#fff;margin-left:20px;text-decoration:none;transition:0.3s;
@@ -22,15 +27,33 @@
 
     nav a:hover {color:#f5a623;}
 
-    section {padding:80px 50px;text-align:center;}
+    .home {
+      display:flex;align-items:center;justify-content:space-between;
+      padding:80px 50px;
+    }
 
-    #home h1 {font-size:40px;}
-    #home span {color:#f5a623;}
+    .left {max-width:50%;}
+
+    .left h1 {font-size:45px;margin-bottom:10px;}
+
+    .name {
+      background: linear-gradient(45deg, #f5a623, #ff4e50);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .typing {
+      font-size:22px;color:#f5a623;margin-top:10px;
+    }
 
     .btn {
       display:inline-block;margin-top:20px;padding:10px 20px;
       background:#f5a623;color:#000;border-radius:5px;text-decoration:none;
     }
+
+    .right img {width:320px;border-radius:10px;}
+
+    section {padding:60px 50px;text-align:center;}
 
     .projects {
       display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -39,15 +62,12 @@
 
     .card {
       background:#1a1a1a;padding:20px;border-radius:10px;
-      transition:0.3s;box-shadow:0 0 10px rgba(0,0,0,0.5);
+      transition:0.3s;
     }
 
     .card:hover {transform:translateY(-10px);}
 
-    footer {
-      text-align:center;padding:20px;background:#111;margin-top:40px;
-    }
-
+    footer {text-align:center;padding:20px;background:#111;}
   </style>
 </head>
 <body>
@@ -62,10 +82,15 @@
   </nav>
 </header>
 
-<section id="home">
-  <h1>Hello, I'm <span>Bhaskar Ghorui</span></h1>
-  <p>Aspiring Data Analyst | Mis Executive | Excel | Power BI | SQL</p>
-  <a href="#projects" class="btn">View My Work</a>
+<section class="home" id="home">
+  <div class="left">
+    <h1>Hello, I'm <span class="name">Bhaskar Ghorui</span></h1>
+    <div class="typing" id="typing"></div>
+    <a href="#projects" class="btn">View My Work</a>
+  </div>
+  <div class="right">
+    <img src="profile.jpg" alt="profile">
+  </div>
 </section>
 
 <section id="about">
@@ -101,8 +126,40 @@
 </section>
 
 <footer>
-  <p>© 2026 Bhaskar | Portfolio</p>
+  <p>© 2026 Bhaskar Ghorui</p>
 </footer>
+
+<script>
+  const roles = ["Data Analyst", "MIS Executive", "Excel Expert"];
+  let i = 0, j = 0, current = "", isDeleting = false;
+
+  function type() {
+    const el = document.getElementById("typing");
+
+    if (!isDeleting && j <= roles[i].length) {
+      current = roles[i].substring(0, j++);
+    } else if (isDeleting && j >= 0) {
+      current = roles[i].substring(0, j--);
+    }
+
+    el.innerHTML = current;
+
+    if (j === roles[i].length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
+    }
+
+    if (j === 0 && isDeleting) {
+      isDeleting = false;
+      i = (i + 1) % roles.length;
+    }
+
+    setTimeout(type, isDeleting ? 50 : 100);
+  }
+
+  type();
+</script>
 
 </body>
 </html>
