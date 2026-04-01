@@ -62,6 +62,20 @@
   border: 3px solid transparent;
   transition: 0.5s;
     }
+.right{
+  padding:1pt; /* 👈 border size 1pt */
+  border-radius:22px;
+  background: linear-gradient(270deg,#f5a623,#ff4e50,#24c6dc,#f5a623);
+  background-size:600% 600%;
+  animation: borderMove 5s linear infinite;
+  display:inline-block;
+}
+
+@keyframes borderMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
     .right img:hover{ transform: rotate(-3deg) scale(1.05); border-color: #f5a623; }
 
     section{padding:80px 50px; text-align: center;}
