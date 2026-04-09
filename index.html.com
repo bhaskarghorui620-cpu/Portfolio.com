@@ -184,7 +184,11 @@
     <div class="card">
   <a href="ecommerce-dashboard.png.png" download>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <img src="ecommerce-dashboard.png" alt="Ecommerce Dashboard">
+=======
+      <img src="ecommerce-dashboard.png.png" alt="Ecommerce Dashboard">
+>>>>>>> 809d8cb54939dc881e13e677a92b3df03bbd802c
 =======
       <img src="ecommerce-dashboard.png.png" alt="Ecommerce Dashboard">
 >>>>>>> 809d8cb54939dc881e13e677a92b3df03bbd802c
@@ -277,9 +281,13 @@ Enabled HR teams to identify patterns and improve workforce management.</p>
     </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- Project 111 -->
 =======
     <!-- Project 11 -->
+>>>>>>> 809d8cb54939dc881e13e677a92b3df03bbd802c
+=======
+    <!-- Project 111 -->
 >>>>>>> 809d8cb54939dc881e13e677a92b3df03bbd802c
     <div class="card">
   <a href="ecommerce-dashboard.png.png" download>
@@ -291,7 +299,11 @@ Enabled HR teams to identify patterns and improve workforce management.</p>
       </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Project 12 -->
+=======
+    <!-- Project 102 -->
+>>>>>>> 809d8cb54939dc881e13e677a92b3df03bbd802c
     <div class="card">
   <a href="ecommerce-dashboard.png.png" download>
       <img src="project12.jpg" alt="Project">
